@@ -265,7 +265,13 @@ async function main() {
     snake = null;
     directionsPressed = [0, 0];
     document.getElementById("board").innerHTML = "";
-    await generateBoard(32);
+
+    if (window.innerWidth <= 600) {
+        await generateBoard(16);
+    } else {
+        await generateBoard(32);
+    }
+
     snake = new Snake(4);
 
     // Set the snake's head position to the middle of the board
@@ -278,6 +284,8 @@ async function main() {
 }
 
 document.documentElement.onkeydown = function (e) {
+    console.log("Key pressed: " + e.key);
+
     switch (e.key) {
         case "w":
             if (directionsPressed[0] != 1) {
@@ -336,6 +344,22 @@ document.documentElement.onkeydown = function (e) {
             }
             break;
     }
+}
+
+document.getElementById("mobile-up").onmousedown = function () {
+    document.documentElement.onkeydown({key: "w"});
+}
+
+document.getElementById("mobile-down").onmousedown = function () {
+    document.documentElement.onkeydown({key: "s"});
+}
+
+document.getElementById("mobile-left").onmousedown = function () {
+    document.documentElement.onkeydown({key: "a"});
+}
+
+document.getElementById("mobile-right").onmousedown = function () {
+    document.documentElement.onkeydown({key: "d"});
 }
 
 document.getElementById("startscreen-start").onclick = start;
