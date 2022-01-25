@@ -170,13 +170,13 @@ var colAmount = 0;
 var snake = null;
 var directionsPressed = [0, 0];
 var apple = [0, 0];
-var speed = 10;
 var gameloopInterval = null;
 var msSinceLastFrame = 0;
 var score = 0;
 var hasDrawnSinceLastUpdate = false;
 var paused = false;
 var pauseCooldown = 0;
+var speed = 10;
 
 
 async function gameloop () {
@@ -269,8 +269,10 @@ async function main() {
 
     if (window.innerWidth <= 600) {
         await generateBoard(16);
+        speed = 5;
     } else {
         await generateBoard(32);
+        speed = 10;
     }
 
     snake = new Snake(4);
