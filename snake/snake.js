@@ -157,6 +157,7 @@ function lose() {
     document.getElementById("losescreen-score").innerText = score;
     document.getElementById("losescreen-restart").onclick = restart;
     document.getElementById("losescreen").style.display = "block";
+    score = 0;
 }
 
 
