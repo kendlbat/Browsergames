@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <style>
+        #nostyle {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-family: "Ubuntu", sans-serif;
+            font-size: xx-large;
+            text-align: center;
+            z-index: 10;
+        }
+    </style>
+    <link rel="stylesheet" href="snake.css">
+</head>
+
+<body>
+    <div id="game">
+        <div id="hud">
+            <div id="score">
+                <span id="score-label">Score: </span>
+                <span id="score-value">0</span>
+            </div>
+        </div>
+        <div id="board"></div>
+    </div>
+    <noscript>
+        <div id="no-js-warning">
+            <p>This game requires JavaScript to be enabled in your browser.</p>
+        </div>
+    </noscript>
+    <div id="pausescreen">
+        <div id="pausescreen-content">
+            <p>Paused</p>
+            <button id="resume">Resume</button>
+            <button id="giveup">Give up</button>
+        </div>
+    </div>
+    <div id="losescreen">
+        <div id="losescreen-content">
+            <h1>Game Over</h1>
+            <p>Your score: <span id="losescreen-score"></span></p>
+            <button id="losescreen-restart">Restart</button>
+        </div>
+    </div>
+    <div id="startscreen">
+        <div id="startscreen-content">
+            <h1>Snake</h1>
+            <p>Use the arrow keys (or WASD) to move the snake.</p>
+            <p>Eat the red apples to grow.</p>
+            <p>Don't run into yourself or the walls.</p>
+            <p>Good luck!</p>
+            <button id="startscreen-start">Start</button>
+        </div>
+    </div>
+    <div id="nostyle">
+        <p>There was an error while loading the stylesheet. Please try reloading the page.</p>
+    </div>
+    <footer id="footer">
+        <div>Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></div>
+    </footer>
+    <script src="snake.js"></script>
+</body>
+
+</html>
