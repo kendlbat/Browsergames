@@ -15,6 +15,8 @@ var starttextColor = null;
 var paused = false;
 var pausecooldown = 0;
 
+var touchcontrols = false;
+
 var humans = 1;
 
 var pointsForWin = 6;
@@ -246,7 +248,7 @@ class Player {
 
     constructor(left, top, color) {
         this.width = Player.PLAYERWIDTH;
-        this.height = windowHeight / 6;
+        this.height = touchcontrols ? windowHeight / 4 : windowHeight / 6;
         this.left = left || 10;
         this.top = top || windowHeight / 2 - this.height / 2;
         this.color = color || Player.DEFAULTCOLOR;
@@ -334,7 +336,7 @@ async function main() {
     player2 = new Player(windowWidth - Player.PLAYERWIDTH - 30, windowHeight / 2 - windowHeight / 12, null);
     ball = new Ball(windowWidth / 2, windowHeight / 2, null, null, new Vector2(0, 0));
     loopInterval = setInterval(gameloop, 1000 / 60);
-    
+
     starttext = "READY?";
     starttextColor = "red";
 
@@ -472,4 +474,95 @@ document.getElementById("giveup").onclick = function () {
     player2 = null;
     document.getElementById("pausescreen").style.display = "none";
     document.getElementById("startscreen").style.display = "block";
+}
+
+document.documentElement.ontouchstart = async function (e) {
+    touchcontrols = true;
+}
+
+if ('ontouchstart' in document.documentElement) {
+    document.getElementById("gamecanvas").ontouchstart = async function (e) {
+        for (let touch of e.touches) {
+            console.log(touch);
+            if (touch.clientY > windowHeight / 2) {
+                if (touch.clientX < windowWidth / 2) {
+                    player1Buttons[1] = true;
+                } else {
+                    player2Buttons[1] = true;
+                }
+            } else {
+                if (touch.clientX < windowWidth / 2) {
+                    player1Buttons[0] = true;
+                } else {
+                    player2Buttons[0] = true;
+                }
+            }
+        }
+
+        if (humans > 0) {
+            if (player1Buttons[0] && player1Buttons[1]) {
+                player1.direction = Direction.NONE;
+            } else if (player1Buttons[0]) {
+                player1.direction = Direction.UP;
+            } else if (player1Buttons[1]) {
+                player1.direction = Direction.DOWN;
+            } else {
+                player1.direction = Direction.NONE;
+            }
+
+            if (humans == 2) {
+                if (player2Buttons[0] && player2Buttons[1]) {
+                    player2.direction = Direction.NONE;
+                } else if (player2Buttons[0]) {
+                    player2.direction = Direction.UP;
+                } else if (player2Buttons[1]) {
+                    player2.direction = Direction.DOWN;
+                } else {
+                    player2.direction = Direction.NONE;
+                }
+            }
+        }
+    }
+
+    document.getElementById("gamecanvas").ontouchend = async function (e) {
+        for (let touch of e.changedTouches) {
+            if (touch.clientY > windowHeight / 2) {
+                if (touch.clientX < windowWidth / 2) {
+                    player1Buttons[1] = false;
+                } else {
+                    player2Buttons[1] = false;
+                }
+            } else {
+                if (touch.clientX < windowWidth / 2) {
+                    player1Buttons[0] = false;
+                } else {
+                    player2Buttons[0] = false;
+                }
+            }
+        }
+
+        if (humans > 0) {
+            if (player1Buttons[0] && player1Buttons[1]) {
+                player1.direction = Direction.NONE;
+            } else if (player1Buttons[0]) {
+                player1.direction = Direction.UP;
+            } else if (player1Buttons[1]) {
+                player1.direction = Direction.DOWN;
+            } else {
+                player1.direction = Direction.NONE;
+            }
+
+            if (humans == 2) {
+                if (player2Buttons[0] && player2Buttons[1]) {
+                    player2.direction = Direction.NONE;
+                } else if (player2Buttons[0]) {
+                    player2.direction = Direction.UP;
+                } else if (player2Buttons[1]) {
+                    player2.direction = Direction.DOWN;
+                } else {
+                    player2.direction = Direction.NONE;
+                }
+            }
+        }
+    }
 }
