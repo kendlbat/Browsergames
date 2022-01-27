@@ -172,7 +172,7 @@ class Ball {
     static RAMP_PER_HIT = 0.3;
 
     static DEFAULTVECTOR() {
-        return new Vector2(Math.random() < 0.5 ? -7 : 7, Math.random() * (10 - 5) + 5);
+        return new Vector2(Math.random() < 0.5 ? -7 : 7, Math.random() * (10 - 5) + 5) / (touchcontrols ? 1 : 1.5);
     }
     static RANDOMVARIANCE = 3;
 
