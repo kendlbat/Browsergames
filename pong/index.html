@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pong.css">
+    <title>Pong</title>
+</head>
+<body>
+    <main>
+        <canvas id="gamecanvas"></canvas>
+    </main>
+    <div id="startscreen">
+        <div id="startscreen-content">
+            <h1>Pong</h1>
+            <p>Player 1: Use W and S to move the left paddle.</p>
+            <p>Player 2: Use Up and Down to move the right paddle.</p>
+            <p>Select mode:</p>
+
+            <button id="startscreen-one">Player vs. AI</button>
+            <button id="startscreen-two">Player vs. Player</button>
+        </div>
+    </div>
+    <div id="losescreen">
+        <div id="losescreen-content">
+            <h1>Game Over</h1>
+            <p>Score: <span id="losescreen-score"></span></p>
+            <button id="losescreen-restart">Restart</button>
+            <button id="losescreen-home">Home</button>
+        </div>
+    </div>
+    <div id="pausescreen">
+        <div id="pausescreen-content">
+            <p>Paused</p>
+            <button id="resume">Resume</button>
+            <button id="giveup">Give up</button>
+        </div>
+    </div>
+    <div id="nostyle">
+        <p>There was an error while loading the stylesheet. Please try reloading the page.</p>
+    </div>
+    <noscript>
+        <div id="no-js-warning">
+            <p>This game requires JavaScript to be enabled in your browser.</p>
+        </div>
+    </noscript>
+    <footer id="footer">
+        <div>Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></div>
+    </footer>
+    <script src="pong.js"></script>
+</body>
+</html>
