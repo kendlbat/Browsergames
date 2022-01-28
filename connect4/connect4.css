@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: xx-large;
+    font-family: "Ubuntu", sans-serif;
+    text-align: center;
+    background-color: black;
+    display: block;
+    z-index: 1;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+    font-size: xx-large;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#game {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border: 1px solid white;
+}
+
+table#board {
+    border-collapse: collapse;
+}
+
+.cell {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0px;
+    aspect-ratio: 1 !important;
+}
+
+.cell.red {
+    background-color: #ff0000;
+}
+
+.cell.yellow {
+    background-color: orange;
+}
+
+main {
+    z-index: 0;
+}
+
+#winscreen {
+    z-index: 1;
+}
+
+div.fullscreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: xx-large;
+    font-family: "Ubuntu", sans-serif;
+    text-align: center;
+    background-color: black;
+}
+
+div.nodisplay {
+    display: none;
+}
+

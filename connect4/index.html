@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="connect4.css">
+    <title>Connect four!</title>
+</head>
+<body>
+    <main>
+        <div id="hud">
+            <div id="turn-indicator">
+                <span id="turn-status"></span>
+                <span id="turn-indicator-label">'s turn!</span>
+            </div>
+        </div>
+        <div id="game"></div>
+    </main>
+    <div id="winscreen" class="fullscreen nodisplay">
+        <div id="winscreen-content">
+            <h1 id="winner">Text will appear here. (Magic)</h1>
+            <button id="winscreen-restart">Restart</button>
+            <button id="winscreen-home">Home</button>
+        </div>
+    </div>
+    <div id="startscreen" class="fullscreen">
+        <div id="startscreen-content">
+            <h1>Connect four!</h1>
+            <p>Player 1: Use the arrow keys to move the left paddle.</p>
+            <p>Player 2: Use the WASD keys to move the right paddle.</p>
+            <p>Select mode:</p>
+            <button id="startscreen-two">Player vs. Player</button>
+        </div>
+    </div>
+    <noscript>
+        <div id="no-js-warning" class="fullscreen">
+            <p>This game requires JavaScript to be enabled in your browser.</p>
+        </div>
+    </noscript>
+    <script src="connect4.js"></script>
+</body>
+</html>
