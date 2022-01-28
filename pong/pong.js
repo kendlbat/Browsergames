@@ -172,7 +172,11 @@ class Ball {
     static RAMP_PER_HIT = 0.3;
 
     static DEFAULTVECTOR() {
-        return new Vector2(Math.random() < 0.5 ? -7 : 7, Math.random() * (10 - 5) + 5) / (touchcontrols ? 1 : 1.5);
+        let newVector = new Vector2(Math.random() < 0.5 ? -7 : 7, Math.random() * (10 - 5) + 5);
+        if (touchcontrols) {
+            newVector = newVector.multiply(.8);
+        }
+        return newVector;
     }
     static RANDOMVARIANCE = 3;
 
@@ -468,10 +472,7 @@ document.getElementById("resume").onclick = function () {
 
 document.getElementById("giveup").onclick = function () {
     clearInterval(loopInterval);
-    score = [0, 0];
-    ball = null;
-    player1 = null;
-    player2 = null;
+    score = [0, 0];;
     document.getElementById("pausescreen").style.display = "none";
     document.getElementById("startscreen").style.display = "block";
 }
