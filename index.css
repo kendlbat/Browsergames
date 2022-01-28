@@ -140,19 +140,15 @@ a, a:visited, a:active {
 
 #license {
     font-size: large;
-    margin: .3em 10% 1em 10%;
+    margin: 50em 10% 1em 10%;
     position: sticky;
     bottom: 10px;
     padding: .2em 1em;
     background-color: #222;
 }
 
-#footer-author-container {
-    margin: 10em 3em 0;
-    height: 30em;
-}
-
-#footer-author-container div {
+#footer-author {
+    margin-top: 10em;
     position: sticky;
     top: 35%;
 }
