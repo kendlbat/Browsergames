@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    padding: 0px;
+}
+
+main {
+    margin-top: 5%;
+}
+
+menu {
+    width: 90%;
+    margin: 5%;
+}
+
+menu, #menu {
+    padding: 0px !important;
+}
+
+#bottom-to-top {
+    background-color: black;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+    font-size: xx-large;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#description-container {
+    margin: 3em 0;
+    height: 30em;
+    width: 90%;
+    margin: 5%;
+}
+
+#description {
+    position: sticky;
+    border: 2px solid white;
+    padding: 1em 10px;
+    margin-bottom: 2em;
+    border-radius: 15px;
+    top: 20%;
+}
+
+ul#menu {
+    list-style-type: none;
+}
+
+ul#menu .slide-container {
+    display: block;
+    height: 45em;
+}
+
+.menu-game {
+    border-radius: 15px;
+    top: 3em;
+    padding: 1em 10px;
+    margin-bottom: 3em;
+    position: sticky;
+}
+
+.menu-game p {
+    margin: .1em 0 .1em 2em;
+    text-align: left;
+}
+
+.menu-game img {
+    width: 40%;
+    height: auto;
+    border: 1px solid white;
+    margin: .7em 0;
+}
+
+#menu-pong {
+    border: 2px solid purple;
+}
+
+#menu-snake {
+    border: 2px solid #008800;
+}
+
+#menu-connect4 {
+    border: 2px solid orange;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: .1em;
+}
+
+a, a:visited, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.rainbowtext, .rainbowhover:hover {
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,165,0,1) 14%, rgba(255,255,0,1) 29%, rgba(0,136,0,1) 43%, rgba(0,0,255,1) 57%, rgba(75,0,130,1) 71%, rgba(238,130,238,1) 86%, rgba(255,0,0,1) 100%);
+    background-repeat: no-repeat;
+    background-size: 2000% 100%;
+    background-position: right-top;
+    background-clip: text;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: rainbow 7s infinite linear;
+    -moz-animation: rainbow 7s infinite linear;
+    -o-animation: rainbow 7s infinite linear;
+    animation: rainbow 7s infinite linear;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.noscript-content {
+    border: 1px solid white;
+    margin-top: 2em;
+    padding: .5em 0;
+    border-radius: 15px;
+}
+
+#noscript-unusable-warning {
+    margin-left: 10%;
+    width: 80%;
+    margin-right: 10%;
+}
+
+#noscript-unusable-warning p {
+    margin: .1em;
+    font-size: x-large;
+}
+
+#license {
+    font-size: large;
+    margin: .3em 10% 1em 10%;
+    position: sticky;
+    bottom: 10px;
+    padding: .2em 1em;
+    background-color: #222;
+}
+
+#footer-author-container {
+    margin: 10em 3em 0;
+    height: 30em;
+}
+
+#footer-author-container div {
+    position: sticky;
+    top: 35%;
+}
+
+@keyframes rainbow {
+    0% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+}
