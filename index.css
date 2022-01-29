@@ -38,7 +38,10 @@ menu, #menu {
     border: 2px solid white;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    cursor: pointer;
 }
 
 #description-container {
