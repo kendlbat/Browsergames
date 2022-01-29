@@ -267,13 +267,9 @@ async function main() {
     directionsPressed = [0, 0];
     document.getElementById("board").innerHTML = "";
 
-    if (window.innerWidth <= 600) {
-        await generateBoard(16);
-        speed = 5;
-    } else {
-        await generateBoard(32);
-        speed = 10;
-    }
+    speed = Math.floor(window.innerWidth / 160);
+
+    await generateBoard(Math.floor(window.innerWidth / 42));
 
     snake = new Snake(4);
 
@@ -346,6 +342,27 @@ document.documentElement.onkeydown = function (e) {
                 pause();
             }
             break;
+    }
+}
+
+document.documentElement.ontouchstart = function (e) {
+    // Check if gameloopInterval is running
+    if (gameloopInterval == null) {
+        return;
+    }
+
+    e.preventDefault();
+
+    for (let touch of e.changedTouches) {
+        if (touch.clientX < window.innerWidth / 3) {
+            document.documentElement.onkeydown({key: "ArrowLeft"});
+        } else if (touch.clientX > window.innerWidth / 3 * 2) {
+            document.documentElement.onkeydown({key: "ArrowRight"});
+        } else if (touch.clientY < window.innerHeight / 2) {
+            document.documentElement.onkeydown({key: "ArrowUp"});
+        } else {
+            document.documentElement.onkeydown({key: "ArrowDown"});
+        }
     }
 }
 
