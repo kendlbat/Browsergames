@@ -156,38 +156,36 @@ button {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
-    #mobilecontrols {
-        display: block;
-        color: white;
-        z-index: 1;
-        bottom: 10%;
-        text-align: center;
-        position: fixed;
-        width: 100%;
-    }
+body.mobile #mobilecontrols {
+    display: block;
+    color: white;
+    z-index: 1;
+    bottom: 10%;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
 
-    #mobilecontrols button {
-        font-size: 50px;
-        border: 1px solid white;
-        border-radius: 5px;
-        margin: 3px;
-        padding-left: 15px;
-        padding-right: 20px;
-    }
-    
-    #upper-mobile-buttons {
-        display: block;
-    }
+body.mobile #mobilecontrols button {
+    font-size: 50px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 3px;
+    padding-left: 15px;
+    padding-right: 20px;
+}
 
-    #lower-mobile-buttons {
-        display: block;
-    }
+body.mobile #upper-mobile-buttons {
+    display: block;
+}
 
-    #board {
-        top: 35%;
-        height: 40%;
-    }
+body.mobile #lower-mobile-buttons {
+    display: block;
+}
+
+body.mobile #board {
+    top: 35%;
+    height: 40%;
 }
 
 a, a:visited, a:active {

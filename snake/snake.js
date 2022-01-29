@@ -365,4 +365,20 @@ document.getElementById("mobile-right").onmousedown = function () {
     document.documentElement.onkeydown({key: "d"});
 }
 
-document.getElementById("startscreen-start").onclick = start;
+document.getElementById("losescreen-home").onclick = function () {
+    document.getElementById("losescreen").style.display = "none";
+    document.getElementById("startscreen").style.display = "block";
+}
+
+document.getElementById("startscreen-mobile").onclick = function () {
+    document.body.classList.add("mobile");
+    start();
+}
+
+document.getElementById("startscreen-start").onclick = function () {
+    document.body.classList.remove("mobile");
+    start();
+};
+
+document.body.onresize = giveup;
+
