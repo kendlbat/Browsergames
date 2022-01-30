@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="minesweeper.css">
+</head>
+<body>
+    <main>
+        <div id="board"></div>
+        <div id="hud">
+            <div id="hud-timer">
+                <span id="timer"></span>
+            </div>
+            <div id="hud-flagcount">
+                <span id="flagcount-value">0</span>
+                <span id="flagcount-label">&#x1F6A9;</span>
+            </div>
+        </div>
+    </main>
+    <div id="winscreen" class="fullscreen nodisplay">
+        <div id="winscreen-content">
+            <h1 id="winner">You won!</h1>
+            <div id="winscreen-stats">
+                <div id="winscreen-stats-time">
+                    <span id="winscreen-stats-time-label">Time: </span>
+                    <span id="winscreen-stats-time-value">00:00</span>
+                </div>
+                <div id="winscreen-stats-bombs">
+                    <span id="winscreen-stats-bombs-label">Bombs: </span>
+                    <span id="winscreen-stats-bombs-value">0</span>
+                </div>
+            </div>
+            <button id="winscreen-restart">Restart</button>
+            <button id="winscreen-home">Home</button>
+        </div>
+    </div>
+    <div id="losescreen" class="fullscreen nodisplay">
+        <div id="losescreen-content">
+            <h1>You lost!</h1>
+            <button id="losescreen-restart">Restart</button>
+            <button id="losescreen-home">Home</button>
+        </div>
+    </div>
+    <div id="pausescreen" class="fullscreen nodisplay">
+        <div id="pausescreen-content">
+            <h1>Paused</h1>
+            <button id="pausescreen-resume">Resume</button>
+            <button id="pausescreen-home">Home</button>
+        </div>
+    </div>
+    <div id="startscreen" class="fullscreen">
+        <div id="startscreen-content">
+            <h1>Minesweeper</h1>
+            <p>Goal: Clear the board without opening a bomb!</p>
+            <p>You can use your mouse: left-click to reveal a cell, right-click to flag it.</p>
+            <p>You can also use your keyboard: Move with the arrow-keys and reveal with ENTER or flag with SPACE.</p>
+            <p title="No shame in that.">Get a hint by clicking on the flag icon or pressing H!</p>
+            <button id="startscreen-easy">Easy</button>
+            <button id="startscreen-medium">Medium</button>
+            <button id="startscreen-hard">Hard</button>
+        </div>
+    </div>
+    <script src="minesweeper.js"></script>
+</body>
+</html>
