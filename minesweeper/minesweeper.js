@@ -276,7 +276,7 @@ async function generateHTMLBoard() {
             cell.style.maxHeight = cellSide + "px";
             cell.style.minHeight = cellSide + "px";
             cell.style.minWidth = cellSide + "px";
-            cell.style.fontSize = cellSide * 0.5 + "px";
+            cell.style.fontSize = cellSide * 0.7 + "px";
             cell.setAttribute("id", `${i}-${j}`);
             cell.addEventListener("click", async function () {
                 cells[i][j].reveal();
@@ -323,6 +323,7 @@ async function updateTimer() {
 setInterval(updateTimer, 100);
 
 document.body.onresize = async function () {
+    document.getElementById("nowide-screen-width").innerText = window.innerWidth + "px";
     console.log("Resizing board");
     resetHTMLBoard();
     await generateHTMLBoard();
@@ -470,5 +471,6 @@ document.getElementById("hud-flagcount").ondblclick = function (e) {
     document.getElementById("hud-flagcount").onclick();
 }
 
+document.getElementById("nowide-screen-width").innerText = window.innerWidth + "px";
 
 main();
