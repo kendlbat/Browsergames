@@ -325,7 +325,7 @@ setInterval(updateTimer, 100);
 document.body.onresize = async function () {
     console.log("Resizing board");
     resetHTMLBoard();
-    generateHTMLBoard();
+    await generateHTMLBoard();
     document.getElementById("hud").style.width = document.getElementById("board").clientWidth + "px";
 }
 
