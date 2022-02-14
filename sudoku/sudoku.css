@@ -59,6 +59,22 @@ button {
     cursor: pointer;
 }
 
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-family: "Ubuntu", sans-serif;
+    width: 100%;
+    height: 2em;
+    background-color: #666;
+    padding-top: .2em;
+    padding-bottom: .1em;
+    color: white;
+    text-align: center;
+    z-index: 11;
+}
+
+
 #board {
     display: block;
     position: absolute;
@@ -89,6 +105,15 @@ button {
     aspect-ratio: 1;
     background-color: #fff;
 
+}
+
+a, a:visited, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
 }
 
 table.block {

@@ -202,7 +202,11 @@ function selectCell(cell) {
     selectedCell[1] = col;
 
     document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.add("selected");
-    document.getElementById("forceinput").focus();
+    if (!cell.classList.contains("static")) {
+        document.getElementById("forceinput").focus();
+    } else {
+        cell.focus();
+    }
 }
 
 async function generateHTMLBoard(board) {
