@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <main>
+        <div id="board">
+        </div>
+        <input id="forceinput" type="text" onblur="this.focus();" autofocus style="display:none;">
+    </main>
+    <div id="loadwarn">
+        <div>
+            <p>The board may take a while to load... Please be patient.</p>
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-content" class="fullscreen">
+            <p>
+                This game requires JavaScript to be enabled.
+            </p>
+        </div>
+    </noscript>
+    <div id="nostyle" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 99;">
+        <p>
+            There has been an error while loading the stylesheet for this document. Please try again later.
+        </p>
+    </div>
+    <div id="startscreen" class="fullscreen">
+        <div id="startscreen-content">
+            <h1>Sudoku</h1>
+            <p>Use your mouse (or the arrow keys) to select a cell.</p>
+            <p>Input a number using your keyboard.</p>
+            <p>Numbers have to be unique per row, column and 3x3 block.</p>
+            <p>Good luck!</p>
+            <button id="startscreen-easy">Easy</button>
+            <button id="startscreen-medium">Medium</button>
+            <button id="startscreen-hard">Hard</button>
+            <button id="startscreen-random">Random</button>
+        </div>
+    </div>
+    <div id="winscreen" class="fullscreen">
+        <div id="winscreen-content">
+            <h1>You won!</h1>
+            <p>You solved the puzzle in <span id="winscreen-time">0</span> seconds.</p>
+            <button id="winscreen-easy">Easy</button>
+            <button id="winscreen-medium">Medium</button>
+            <button id="winscreen-hard">Hard</button>
+            <button id="winscreen-random">Random</button>
+            <button id="winscreen-home">Home</button>
+        </div>
+    </div>
+    <script src="sudoku.js"></script>
+</body>
+</html>

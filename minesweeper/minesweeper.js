@@ -65,7 +65,6 @@ async function updateHTMLFlagCount() {
     flagCount.innerText = flagsRemaining;
 }
 
-
 class Cell {
     /**
      * 
@@ -147,7 +146,11 @@ class Cell {
         }
     }
 
-    adjacentMines() {
+    adjacentMines(board) {
+        if (board == null) {
+            board = cells;
+        }
+
         let count = 0;
 
         for (let i = -1; i <= 1; i++) {
@@ -185,6 +188,46 @@ class Cell {
 
         checkIfWon();
         updateHTMLFlagCount();
+    }
+
+    clone() {
+        return new Cell(this.x, this.y, this.mine);
+    }
+
+    adjacentRevealed(board) {
+        if (board == null) {
+            board = cells;
+        }
+
+        let count = 0;
+        for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+                if (this.x + i >= 0 && this.x + i < boardWidth && this.y + j >= 0 && this.y + j < boardHeight) {
+                    if (board[this.x + i][this.y + j].revealed) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    adjacentFlagged(board) {
+        if (board == null) {
+            board = cells;
+        }
+
+        let count = 0;
+        for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+                if (this.x + i >= 0 && this.x + i < boardWidth && this.y + j >= 0 && this.y + j < boardHeight) {
+                    if (board[this.x + i][this.y + j].flagged) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
     }
 }
 
@@ -297,6 +340,65 @@ async function generateHTMLBoard() {
 
     document.getElementById("board").appendChild(grid);
 }
+
+async function solveBoard(startX, startY) {
+    let tempboard = [];
+
+    for (let i = 0; i < boardHeight; i++) {
+        tempboard.push([]);
+        for (let j = 0; j < boardWidth; j++) {
+            tempboard[i].push(cells[i][j].clone());
+        }
+    }
+
+    let cellsChanged = 0;
+
+    tempboard[startX][startY].reveal();
+
+    do {
+        cellsChanged = 0;
+        for (let i = 0; i < boardHeight; i++) {
+            for (let j = 0; j < boardWidth; j++) {
+                if (tempboard[i][j].revealed) {
+                    let adjacentClosed = 8 - tempboard[i][j].adjacentRevealed(tempboard);
+                    let adjacentMines = tempboard[i][j].adjacentMines(tempboard);
+                    let adjacentFlagged = tempboard[i][j].adjacentFlagged(tempboard);
+                    
+                    if (adjacentClosed - adjacentFlagged <= adjacentMines) {
+                        for (let k = -1; k <= 1; k++) {
+                            for (let l = -1; l <= 1; l++) {
+                                if (!tempboard[i][j].flagged) {
+                                    tempboard[i][j].flag();
+                                    cellsChanged++;
+                                }
+                            }
+                        }
+                    } else if (adjacentMines == adjacentFlagged) {
+                        for (let k = -1; k <= 1; k++) {
+                            for (let l = -1; l <= 1; l++) {
+                                if (!tempboard[i][j].flagged) {
+                                    tempboard[i][j].reveal();
+                                    cellsChanged++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        console.log(cellsChanged);
+
+        for (let i = 0; i < boardHeight; i++) {
+            for (let j = 0; j < boardWidth; j++) {
+                cells[i][j] = tempboard[i][j].clone();
+            }
+        }
+    
+        resetHTMLBoard();
+        generateHTMLBoard();
+    } while (cellsChanged > 0);
+}
+
 
 async function main() {
     timerEnable = false;
