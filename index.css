@@ -170,6 +170,12 @@ a, a:visited, a:active {
     top: 35%;
 }
 
+#arsicthanks {
+    background-color: rgba(255, 255, 255, .1);
+    padding: 3px;
+    border-radius: 4px;
+}
+
 @keyframes rainbow {
     0% { background-position: 100% 0%; }
     100% { background-position: 0% 0%; }
