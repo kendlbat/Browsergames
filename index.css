@@ -105,6 +105,10 @@ ul#menu .slide-container {
     border: 2px solid #999;
 }
 
+#menu-sudoku {
+    border: 2px solid red;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin: .1em;
 }
