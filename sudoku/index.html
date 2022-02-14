@@ -11,7 +11,7 @@
     <main>
         <div id="board">
         </div>
-        <input id="forceinput" type="text" onblur="this.focus();" autofocus style="display:none;">
+        <input id="forceinput" type="number" inputmode="number" pattern="\d*">
     </main>
     <div id="loadwarn">
         <div>
@@ -53,6 +53,11 @@
             <button id="winscreen-random">Random</button>
             <button id="winscreen-home">Home</button>
         </div>
+    </div>
+    <div id="nowide" class="fullscreen">
+        <p>
+            This game requires a minimum screen width of 364 pixels.
+        </p>
     </div>
     <script src="sudoku.js"></script>
 </body>

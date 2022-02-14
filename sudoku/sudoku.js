@@ -202,6 +202,7 @@ function selectCell(cell) {
     selectedCell[1] = col;
 
     document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.add("selected");
+    document.getElementById("forceinput").focus();
 }
 
 async function generateHTMLBoard(board) {
@@ -259,9 +260,8 @@ async function startGame(difficulty) {
 
 async function checkIfWon() {
     if (await isBoardSolved(board)) {
-        console.log(await isBoardCorrect(board));
-        if (true) {
-            
+        if (await isBoardCorrect(board)) {
+            document.getElementById("winscreen-time").innerText = String(Math.floor((Date.now().valueOf() - gameStartTime) / 1000));
             document.getElementById("winscreen").style.display = "block";
         }
     }
@@ -320,7 +320,10 @@ document.documentElement.onkeyup = function (e) {
     }
 }
 
-document.getElementById("forceinput").onkeydown = document.documentElement.onkeydown;
+document.getElementById("forceinput").onkeyup = function (e) {
+    e.preventDefault();
+    console.log("f");
+};
 
 document.getElementById("startscreen-easy").onclick = () => startGame("easy");
 document.getElementById("startscreen-medium").onclick = () => startGame("medium");

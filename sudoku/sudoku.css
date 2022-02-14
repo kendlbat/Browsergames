@@ -38,6 +38,15 @@ body {
     margin: .1em;
 }
 
+#forceinput {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
 button {
     background-color: red;
     color: white;
@@ -56,7 +65,7 @@ button {
     left: 0px;
     top: 0px;
     width: 100%;
-    max-height: 60%;
+    max-height: 90%;
     margin: auto;
     overflow: hidden;
     aspect-ratio: 1 !important;
@@ -74,6 +83,8 @@ button {
     border-collapse: collapse;
     font-size: 1.8rem;
     height: 100%;
+    min-width: 364px;
+    min-height: 364px;
     margin: auto;
     aspect-ratio: 1;
     background-color: #fff;
@@ -150,4 +161,15 @@ main {
 
 #noscript-content {
     z-index: 10;
+}
+
+#nowide {
+    display: none;
+    z-index: 8;
+}
+
+@media screen and (max-width: 363px) {
+    #nowide {
+        display: block;
+    }
 }
