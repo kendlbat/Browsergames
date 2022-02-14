@@ -222,11 +222,11 @@ async function generateHTMLBoard(board) {
             for (let k = 0; k < blockSize; k++) {
                 for (let l = 0; l < blockSize; l++) {
                     let cell = document.createElement("td");
-                    cell.setAttribute("class", "cell");
+                    cell.classList.add("cell");
                     cell.setAttribute("id", `${i * blockSize + k}${j * blockSize + l}`);
                     if (board[i * blockSize + k][j * blockSize + l] != 0) {
                         cell.innerHTML = board[i * blockSize + k][j * blockSize + l];
-                        cell.setAttribute("class", "cell static");
+                        cell.classList.add("static");
                     } else {
                         cell.innerHTML = "&nbsp;";
                     }
@@ -255,10 +255,14 @@ async function startGame(difficulty) {
     document.getElementById("winscreen").style.display = "none";
     board = await randomBoard(board, difficulty);
     console.log(await isBoardCorrect(board));
-
-    generateHTMLBoard(board);
-    document.getElementById("loadwarn").style.display = "none";
-    gameStartTime = new Date().valueOf();
+    selectedCell = [0, 0];
+    generateHTMLBoard(board).then(function () {
+        document.getElementById("loadwarn").style.display = "none";
+        if (board[0][0] != 0) {
+            document.getElementById("00").classList.add("static");
+        }
+        gameStartTime = new Date().valueOf();
+    });
 }
 
 
