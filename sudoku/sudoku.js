@@ -191,6 +191,19 @@ async function solvedBoard(board) {
     return board;
 }
 
+async function markAll(board, number) {
+    // Mark all the cells with the number
+    for (let i = 0; i < GRID_SIZE; i++) {
+        for (let j = 0; j < GRID_SIZE; j++) {
+            if (board[i][j] == number) {
+                document.getElementById(`${i}${j}`).style.backgroundColor = "orange";
+            } else {
+                document.getElementById(`${i}${j}`).style.backgroundColor = "";
+            }
+        }
+    }
+}
+
 
 function selectCell(cell) {
     let row = cell.id.charAt(0);
@@ -205,6 +218,7 @@ function selectCell(cell) {
     if (!cell.classList.contains("static")) {
         document.getElementById("forceinput").focus();
     } else {
+        markAll(board, board[row][col]);
         cell.focus();
     }
 }
@@ -295,6 +309,7 @@ document.documentElement.onkeyup = function (e) {
         board[selectedCell[0]][selectedCell[1]] = e;
         document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).innerHTML = (e == 0 ? "&nbsp;" : e);
         checkIfWon();
+        document.documentElement.focus();
     } else if (e == "ArrowUp") {
         if (selectedCell[0] > 0) {
             selectedCell[0]--;
