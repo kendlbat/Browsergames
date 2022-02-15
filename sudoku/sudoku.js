@@ -363,3 +363,12 @@ document.getElementById("winscreen-home").onclick = () => {
     document.getElementById("winscreen").style.display = "none";
     document.getElementById("startscreen").style.display = "block";
 }
+
+console.log("╔══════════════════════════════════╗");
+console.log("║   Sudoku by Tobias Kendlbacher   ║");
+console.log("║   https://github.com/kendlbat    ║");
+console.log("║                                  ║");
+console.log("║ Special thanks to:               ║");
+console.log("║   - Roberto Ortega (bertoort)    ║");
+console.log("║       For his sugoku API.        ║");
+console.log("╚══════════════════════════════════╝");
