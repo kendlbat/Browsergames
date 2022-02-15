@@ -318,6 +318,8 @@ document.documentElement.onkeyup = function (e) {
         prevent();
         board[selectedCell[0]][selectedCell[1]] = 0;
         document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).innerHTML = "&nbsp;";
+    } else if (e == "Enter") {
+        document.documentElement.focus();
     }
 
 

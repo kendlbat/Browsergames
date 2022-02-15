@@ -81,7 +81,7 @@ button {
     left: 0px;
     top: 0px;
     width: 100%;
-    max-height: 90%;
+    max-height: 75%;
     margin: auto;
     overflow: hidden;
     aspect-ratio: 1 !important;
@@ -97,7 +97,7 @@ button {
 
     border-spacing: 0px;
     border-collapse: collapse;
-    font-size: 1.8rem;
+    font-size: 2rem;
     height: 100%;
     min-width: 364px;
     min-height: 364px;
@@ -151,7 +151,7 @@ table.block {
 }
 
 #grid .cell.static:not(.selected) {
-    background-color: #dadada;
+    background-color: #dfdfdf;
 }
 
 #loadwarn {
