@@ -151,8 +151,8 @@ async function isBoardCorrect(board) {
 async function randomBoard(board, difficulty) {
     console.log("Fetching random board...");
     let startTime = new Date().valueOf();
-    // Fetch json data from https://sugoku.herokuapp.com/board?difficulty=hard
-    let url = "https://sugoku.herokuapp.com/board?random=" + Math.floor(Math.random() * 100000) + "&difficulty=" + difficulty;
+    // Fetch json data from https://sugoku2.herokuapp.com/board?difficulty=hard
+    let url = "https://sugoku2.herokuapp.com/board?random=" + Math.floor(Math.random() * 100000) + "&difficulty=" + difficulty;
     console.log(url)
     let response = await fetch(url);
     response = await response.json();
@@ -175,7 +175,7 @@ const encodeParams = (params) =>
  * @returns {number[][]} a solution to the given board
  */
 async function solvedBoard(board) {
-    let url = "https://sugoku.herokuapp.com/solve"
+    let url = "https://sugoku2.herokuapp.com/solve"
 
     // Send the board to url in the form of x-www-form-urlencoded
     let response = await fetch(url, {
