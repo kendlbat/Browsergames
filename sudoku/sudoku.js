@@ -191,6 +191,11 @@ async function solvedBoard(board) {
     return board;
 }
 
+/**
+ * 
+ * @param {number[][]} board 
+ * @param {number} number 
+ */
 async function markAll(board, number) {
     // Mark all the cells with the number
     for (let i = 0; i < GRID_SIZE; i++) {
@@ -223,6 +228,10 @@ function selectCell(cell) {
     }
 }
 
+/**
+ * 
+ * @param {number[][]} board 
+ */
 async function generateHTMLBoard(board) {
     let grid = document.createElement("div");
     grid.setAttribute("id", "grid");
@@ -260,7 +269,10 @@ async function resetHTML() {
     document.getElementById("board").innerHTML = "";
 }
 
-
+/**
+ * 
+ * @param {string} difficulty 
+ */
 async function startGame(difficulty) {
     resetBoard(board);
     document.getElementById("board").innerHTML = "";
@@ -302,7 +314,7 @@ document.documentElement.onkeyup = function (e) {
     oldSelectedCell[1] = selectedCell[1];
     let prevent = e.preventDefault;
     e = e.key;
-    if (e >= 0 && e <= 9) {
+    if (e >= 0 && e <= 9 && e != " ") {
         if (document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.contains("static")) {
             return;
         }
@@ -333,7 +345,6 @@ document.documentElement.onkeyup = function (e) {
         board[selectedCell[0]][selectedCell[1]] = 0;
         document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).innerHTML = "&nbsp;";
     } else if (e == " ") {
-        prevent();
         if (document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.contains("static")) {
             markAll(board, board[selectedCell[0]][selectedCell[1]]);
             return;
@@ -345,6 +356,8 @@ document.documentElement.onkeyup = function (e) {
             markAll(board, board[selectedCell[0]][selectedCell[1]]);
         }
         document.documentElement.focus();
+    } else {
+        console.log("key: " + e);
     }
 
 
@@ -357,7 +370,6 @@ document.documentElement.onkeyup = function (e) {
 
 document.getElementById("forceinput").onkeyup = function (e) {
     e.preventDefault();
-    console.log("f");
 };
 
 document.getElementById("startscreen-easy").onclick = () => startGame("easy");
