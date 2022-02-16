@@ -327,13 +327,23 @@ document.documentElement.onkeyup = function (e) {
             selectedCell[1]++;
         }
     } else if (e == "Backspace") {
+        if (document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.contains("static")) {
+            return;
+        }
         board[selectedCell[0]][selectedCell[1]] = 0;
         document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).innerHTML = "&nbsp;";
     } else if (e == " ") {
         prevent();
+        if (document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.contains("static")) {
+            markAll(board, board[selectedCell[0]][selectedCell[1]]);
+            return;
+        }
         board[selectedCell[0]][selectedCell[1]] = 0;
         document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).innerHTML = "&nbsp;";
     } else if (e == "Enter") {
+        if (document.getElementById(`${selectedCell[0]}${selectedCell[1]}`).classList.contains("static")) {
+            markAll(board, board[selectedCell[0]][selectedCell[1]]);
+        }
         document.documentElement.focus();
     }
 
